@@ -22,8 +22,6 @@ export default function Index() {
 						SOFTWARE ENGINEER | UI DESIGNER | NEW YORK, NY
 					</Typography>
 				</Grid>
-
-				{/* <Button variant="contained">Click me!</Button> */}
 			</CenterGrid>
 			<Footer />
 		</>
