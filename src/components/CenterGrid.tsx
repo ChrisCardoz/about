@@ -12,7 +12,7 @@ const CenterGrid: FC<Props> = (props) => {
 			direction="row"
 			justifyContent="center"
 			alignItems="center"
-			style={{height: 'calc(100vh)'}}
+			style={{height: 'calc(100vh - 80px)'}}
 		>
 			<Grid container direction="row" justifyContent="center" alignItems="center">
 				{props.children}
