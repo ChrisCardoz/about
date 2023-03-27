@@ -51,9 +51,10 @@ const Footer = () => {
 					index
 				</Link> */}
 
-				<Link href="" target="_blank">
+				<Link href="Resume2023.pdf" target="_blank">
 					resume
 				</Link>
+
 				<Link href="" target="_blank">
 					design examples
 				</Link>
