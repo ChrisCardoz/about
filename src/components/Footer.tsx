@@ -7,6 +7,7 @@ import {
 } from '@mui/material';
 import {styled} from '@mui/system';
 import Padding from './Padding';
+import {useRouter} from 'next/router';
 
 const linkCss = `
 	text-transform: none;
@@ -16,7 +17,7 @@ const linkCss = `
 	padding-right: 16px;
   font-size: .85rem;
 	&:hover {
-
+		cursor: pointer;
     background: transparent;
 	}
 `;
@@ -30,6 +31,7 @@ const Button = styled(MuiButton)`
 `;
 
 const Footer = () => {
+	const router = useRouter();
 	return (
 		<>
 			{/* {loadResults ? null : (
@@ -58,9 +60,7 @@ const Footer = () => {
 				<Link href="" target="_blank">
 					design examples
 				</Link>
-				<Link href="" target="_blank">
-					top 50 mlb players
-				</Link>
+				<Link onClick={() => router.push('/mlb')}>top 50 mlb players</Link>
 			</Grid>
 			<Hidden mdUp>
 				<Padding size={16} />
