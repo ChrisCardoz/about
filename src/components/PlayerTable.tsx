@@ -1,47 +1,38 @@
 import * as React from 'react';
 import {alpha} from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
-import TableSortLabel from '@mui/material/TableSortLabel';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
-import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
+import {
+	Box,
+	Table,
+	TableBody,
+	TableCell,
+	TableContainer,
+	TableHead,
+	TablePagination,
+	TableRow,
+	TableSortLabel,
+	Toolbar,
+	Typography,
+	Paper,
+	Checkbox,
+	IconButton,
+	Tooltip,
+	FormControlLabel,
+	Switch,
+	Avatar,
+	Grid,
+} from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import {visuallyHidden} from '@mui/utils';
 import {descendingComparator, getComparator, Order, stableSort} from '../helpers/table';
-
-interface Links {
-	bR: string; // Baseball Reference
-	fG: string; // Fan Graphs
-	bS: string; // Baseball Savant
-}
-interface Player {
-	rank: number;
-	name: string;
-	position: string;
-	rate: number | number[];
-	war: number;
-	links?: Links;
-	img?: string;
-}
+import {Links, Player} from '../helpers/types';
+import PlayerRow from './PlayerRow';
 
 const rows: Player[] = [
 	{
 		rank: 1,
 		name: 'Shohei Ohtani',
-		position: 'DH,SP',
+		position: 'DH, SP',
 		rate: [145, 172],
 		war: 9.5,
 		links: {
@@ -50,6 +41,7 @@ const rows: Player[] = [
 			bS: 'https://baseballsavant.mlb.com/savant-player/shohei-ohtani-660271?stats=statcast-r-hitting-mlb',
 		},
 		img: 'https://www.baseball-reference.com/req/202303230/images/headshots/2/270bfa31_mlbam.jpg',
+		team: 'LAA',
 	},
 ];
 
@@ -72,6 +64,12 @@ const headCells: readonly HeadCell[] = [
 		numeric: false,
 		disablePadding: false,
 		label: 'Player',
+	},
+	{
+		id: 'team',
+		numeric: false,
+		disablePadding: false,
+		label: 'Team',
 	},
 	{
 		id: 'position',
@@ -136,7 +134,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 				{headCells.map((headCell) => (
 					<TableCell
 						key={headCell.id}
-						align={headCell.numeric ? 'right' : 'left'}
+						align={headCell.id === 'links' ? 'right' : 'left'}
 						padding={headCell.disablePadding ? 'none' : 'normal'}
 						sortDirection={orderBy === headCell.id ? order : false}
 					>
@@ -352,36 +350,12 @@ export default function EnhancedTable() {
 										const labelId = `enhanced-table-checkbox-${index}`;
 
 										return (
-											<TableRow
-												hover
-												onClick={(event) => handleClick(event, row.rank as number)}
-												role="checkbox"
-												aria-checked={isItemSelected}
-												tabIndex={-1}
-												key={row.name}
-												selected={isItemSelected}
-												sx={{cursor: 'pointer'}}
-											>
-												<TableCell padding="checkbox">
-													<Checkbox
-														color="primary"
-														checked={isItemSelected}
-														inputProps={{
-															'aria-labelledby': labelId,
-														}}
-													/>
-												</TableCell>
-												<TableCell id={labelId} align="left">
-													{row.rank}
-												</TableCell>
-												<TableCell component="th" scope="row" padding="none">
-													{row.name}
-												</TableCell>
-												<TableCell align="right">{row.position}</TableCell>
-												<TableCell align="right">{row.rank}</TableCell>
-												<TableCell align="right">{row.war}</TableCell>
-												<TableCell align="right">dots</TableCell>
-											</TableRow>
+											<PlayerRow
+												key={row.rank}
+												row={row as Player}
+												isSelected={isSelected}
+												handleClick={handleClick}
+											/>
 										);
 								  })
 								: null}
@@ -407,10 +381,6 @@ export default function EnhancedTable() {
 					onRowsPerPageChange={() => {}}
 				/>
 			</Paper>
-			<FormControlLabel
-				control={<Switch checked={dense} onChange={handleChangeDense} />}
-				label="Dense padding"
-			/>
 		</Box>
 	);
 }
