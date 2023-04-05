@@ -61,12 +61,16 @@ const PlayerRow: FC<Props> = (props) => {
 				<Grid container direction="row" alignItems="center">
 					<Avatar alt={row.name as string} src={row.img as string} />
 
-					<div style={{paddingLeft: 8}}>{row.name}</div>
+					<div style={{paddingLeft: 16}}>{row.name}</div>
 				</Grid>
 			</TableCell>
 			<TableCell align="left">{row.team}</TableCell>
 			<TableCell align="left">{row.position}</TableCell>
-			<TableCell align="left">{row.rank}</TableCell>
+			<TableCell align="left">
+				{(row.rate as number[])?.length
+					? `${(row.rate as number[])[0]} | ${(row.rate as number[])[1]}`
+					: row.rate}
+			</TableCell>
 			<TableCell align="left">{row.war}</TableCell>
 			<TableCell align="right">
 				<IconButton onClick={handleMenuClick}>

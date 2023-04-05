@@ -27,23 +27,7 @@ import {visuallyHidden} from '@mui/utils';
 import {descendingComparator, getComparator, Order, stableSort} from '../helpers/table';
 import {Links, Player} from '../helpers/types';
 import PlayerRow from './PlayerRow';
-
-const rows: Player[] = [
-	{
-		rank: 1,
-		name: 'Shohei Ohtani',
-		position: 'DH, SP',
-		rate: [145, 172],
-		war: 9.5,
-		links: {
-			bR: 'https://www.baseball-reference.com/players/o/ohtansh01.shtml',
-			fG: 'https://www.fangraphs.com/players/shohei-ohtani/19755/stats?position=DH',
-			bS: 'https://baseballsavant.mlb.com/savant-player/shohei-ohtani-660271?stats=statcast-r-hitting-mlb',
-		},
-		img: 'https://www.baseball-reference.com/req/202303230/images/headshots/2/270bfa31_mlbam.jpg',
-		team: 'LAA',
-	},
-];
+import rows from '../helpers/topPlayers';
 
 interface HeadCell {
 	disablePadding: boolean;
@@ -99,7 +83,7 @@ const headCells: readonly HeadCell[] = [
 
 const DEFAULT_ORDER = 'asc';
 const DEFAULT_ORDER_BY = 'rank';
-const DEFAULT_ROWS_PER_PAGE = 5;
+const DEFAULT_ROWS_PER_PAGE = 50;
 
 interface EnhancedTableProps {
 	numSelected: number;
