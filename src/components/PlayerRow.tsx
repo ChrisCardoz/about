@@ -1,6 +1,17 @@
-import {FC} from 'react';
-import {TableCell, TableRow, Checkbox, Avatar, Grid} from '@mui/material';
+import {FC, useState} from 'react';
+import {
+	TableCell,
+	TableRow,
+	Checkbox,
+	Avatar,
+	Grid,
+	IconButton,
+	Menu,
+	MenuItem,
+	Link,
+} from '@mui/material';
 import {Player} from '../helpers/types';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 interface Props {
 	isSelected: (rank: number) => boolean;
@@ -10,6 +21,15 @@ interface Props {
 
 const PlayerRow: FC<Props> = (props) => {
 	const {isSelected, row, handleClick} = props;
+
+	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+	const open = Boolean(anchorEl);
+	const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+		setAnchorEl(event.currentTarget);
+	};
+	const handleClose = () => {
+		setAnchorEl(null);
+	};
 
 	const isItemSelected = isSelected(row.rank as number);
 	const labelId = `enhanced-table-checkbox-${row.rank}`;
@@ -48,7 +68,36 @@ const PlayerRow: FC<Props> = (props) => {
 			<TableCell align="left">{row.position}</TableCell>
 			<TableCell align="left">{row.rank}</TableCell>
 			<TableCell align="left">{row.war}</TableCell>
-			<TableCell align="right">dots</TableCell>
+			<TableCell align="right">
+				<IconButton onClick={handleMenuClick}>
+					<MoreVertIcon />
+				</IconButton>
+				<Menu
+					id="basic-menu"
+					anchorEl={anchorEl}
+					open={open}
+					onClose={handleClose}
+					MenuListProps={{
+						'aria-labelledby': 'basic-button',
+					}}
+				>
+					<MenuItem onClick={handleClose}>
+						<Link href={row.links?.bR} target="blank">
+							Baseball Reference
+						</Link>
+					</MenuItem>
+					<MenuItem onClick={handleClose}>
+						<Link href={row.links?.fG} target="blank">
+							Fan Graphs
+						</Link>
+					</MenuItem>
+					<MenuItem onClick={handleClose}>
+						<Link href={row.links?.bS} target="blank">
+							Baseball Savant
+						</Link>
+					</MenuItem>
+				</Menu>
+			</TableCell>
 		</TableRow>
 	);
 };
