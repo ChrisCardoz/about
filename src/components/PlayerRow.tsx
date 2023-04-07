@@ -2,7 +2,6 @@ import {FC, useState} from 'react';
 import {
 	TableCell,
 	TableRow,
-	Checkbox,
 	Avatar,
 	Grid,
 	IconButton,
@@ -14,13 +13,11 @@ import {Player} from '../helpers/types';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 interface Props {
-	isSelected: (rank: number) => boolean;
-	handleClick: (event: React.MouseEvent<unknown>, rank: number) => void;
 	row: Partial<Player>;
 }
 
 const PlayerRow: FC<Props> = (props) => {
-	const {isSelected, row, handleClick} = props;
+	const {row} = props;
 
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const open = Boolean(anchorEl);
@@ -31,30 +28,11 @@ const PlayerRow: FC<Props> = (props) => {
 		setAnchorEl(null);
 	};
 
-	const isItemSelected = isSelected(row.rank as number);
 	const labelId = `enhanced-table-checkbox-${row.rank}`;
 
 	return (
-		<TableRow
-			hover
-			onClick={(event) => handleClick(event, row.rank as number)}
-			role="checkbox"
-			aria-checked={isItemSelected}
-			tabIndex={-1}
-			key={row.name}
-			selected={isItemSelected}
-			sx={{cursor: 'pointer'}}
-		>
-			<TableCell padding="checkbox">
-				<Checkbox
-					color="primary"
-					checked={isItemSelected}
-					inputProps={{
-						'aria-labelledby': labelId,
-					}}
-				/>
-			</TableCell>
-			<TableCell id={labelId} align="left">
+		<TableRow hover role="checkbox" tabIndex={-1} key={row.name} sx={{cursor: 'pointer'}}>
+			<TableCell id={labelId} align="center" padding="checkbox">
 				{row.rank}
 			</TableCell>
 			<TableCell align="left">

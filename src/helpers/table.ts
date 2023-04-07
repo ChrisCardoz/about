@@ -1,3 +1,5 @@
+import {Player} from './types';
+
 export function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
 	if (b[orderBy] < a[orderBy]) {
 		return -1;
@@ -33,4 +35,63 @@ export function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => n
 		return a[1] - b[1];
 	});
 	return stabilizedThis.map((el) => el[0]);
+}
+
+interface HeadCell {
+	disablePadding: boolean;
+	id: keyof Player;
+	label: string;
+	numeric: boolean;
+}
+
+export const headCells: readonly HeadCell[] = [
+	{
+		id: 'rank',
+		numeric: true,
+		disablePadding: true,
+		label: 'Rank',
+	},
+	{
+		id: 'name',
+		numeric: false,
+		disablePadding: false,
+		label: 'Player',
+	},
+	{
+		id: 'team',
+		numeric: false,
+		disablePadding: false,
+		label: 'Team',
+	},
+	{
+		id: 'position',
+		numeric: false,
+		disablePadding: false,
+		label: 'Position',
+	},
+	{
+		id: 'rate',
+		numeric: true,
+		disablePadding: false,
+		label: 'Rate-Based Stats',
+	},
+	{
+		id: 'war',
+		numeric: true,
+		disablePadding: false,
+		label: 'fWar',
+	},
+	{
+		id: 'links',
+		numeric: false,
+		disablePadding: false,
+		label: 'More Stats',
+	},
+];
+
+export interface EnhancedTableProps {
+	onRequestSort: (event: React.MouseEvent<unknown>, newOrderBy: keyof Player) => void;
+	order: Order;
+	orderBy: string;
+	rowCount: number;
 }
