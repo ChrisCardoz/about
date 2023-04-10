@@ -264,7 +264,7 @@ const rows: Player[] = [
 			fG: 'https://www.fangraphs.com/players/paul-goldschmidt/9218/stats?position=1B',
 			bS: 'https://baseballsavant.mlb.com/savant-player/paul-goldschmidt-502671?stats=statcast-r-hitting-mlb',
 		},
-		img: 'https://www.baseball-reference.com/req/202303230/images/headshots/0/064c7618_mlbam.jpg',
+		img: 'https://www.baseball-reference.com/req/202303230/images/headshots/6/6b37a7f2_mlbam.jpg',
 		team: 'STL',
 	},
 	{

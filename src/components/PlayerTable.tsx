@@ -41,13 +41,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 					<TableCell
 						key={headCell.id}
 						align={headCell.id === 'links' ? 'right' : 'left'}
-						padding={
-							headCell.id === 'rank'
-								? 'checkbox'
-								: headCell.disablePadding
-								? 'none'
-								: 'normal'
-						}
+						padding={headCell.disablePadding ? 'none' : 'normal'}
 						sortDirection={orderBy === headCell.id ? order : false}
 					>
 						<TableSortLabel
@@ -99,6 +93,24 @@ export default function EnhancedTable() {
 	const [rowsPerPage, setRowsPerPage] = React.useState(DEFAULT_ROWS_PER_PAGE);
 	const [paddingHeight, setPaddingHeight] = React.useState(0);
 
+	const handleRequestSort = (
+		event: React.MouseEvent<unknown>,
+		property: keyof Player
+	) => {
+		const isAsc = orderBy === property && order === 'asc';
+		setOrder(isAsc ? 'desc' : 'asc');
+		setOrderBy(property);
+	};
+
+	const handleChangePage = (event: unknown, newPage: number) => {
+		setPage(newPage);
+	};
+
+	const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setRowsPerPage(parseInt(event.target.value, 10));
+		setPage(0);
+	};
+
 	const paginatedData =
 		(!!orderBy && !!rows
 			? stableSort(rows as any, getComparator(order, orderBy))
@@ -108,13 +120,13 @@ export default function EnhancedTable() {
 	return (
 		<Box sx={{width: '100%'}}>
 			<Paper sx={{width: '100%', mb: 2}}>
-				<EnhancedTableToolbar />
+				{/* <EnhancedTableToolbar /> */}
 				<TableContainer>
 					<Table sx={{minWidth: 750}} aria-labelledby="tableTitle" size={'medium'}>
 						<EnhancedTableHead
 							order={order}
 							orderBy={orderBy}
-							onRequestSort={() => {}}
+							onRequestSort={handleRequestSort}
 							rowCount={rows.length}
 						/>
 						<TableBody>
@@ -143,8 +155,8 @@ export default function EnhancedTable() {
 					count={rows.length}
 					rowsPerPage={rowsPerPage}
 					page={page}
-					onPageChange={() => {}}
-					onRowsPerPageChange={() => {}}
+					onPageChange={handleChangePage}
+					onRowsPerPageChange={handleChangeRowsPerPage}
 				/>
 			</Paper>
 		</Box>
