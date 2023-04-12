@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {useState, MouseEvent} from 'react';
 import {
 	Box,
 	Table,
@@ -9,23 +9,29 @@ import {
 	TablePagination,
 	TableRow,
 	TableSortLabel,
-	Toolbar,
-	Typography,
 	Paper,
-	IconButton,
-	Tooltip,
+	Chip,
+	Grid,
 } from '@mui/material';
-import FilterListIcon from '@mui/icons-material/FilterList';
 import {visuallyHidden} from '@mui/utils';
-import {getComparator, Order, stableSort, EnhancedTableProps} from '../helpers/table';
+import {
+	getComparator,
+	Order,
+	stableSort,
+	EnhancedTableProps,
+	isPitcher,
+	isHitter,
+} from '../helpers/table';
 import {Player} from '../helpers/types';
 import PlayerRow from './PlayerRow';
 import rows from '../helpers/topPlayers';
 import {headCells} from '../helpers/table';
+import TogglePlayers from './TogglePlayers';
+import Padding from './Padding';
 
 const DEFAULT_ORDER = 'asc';
 const DEFAULT_ORDER_BY = 'rank';
-const DEFAULT_ROWS_PER_PAGE = 10;
+const DEFAULT_ROWS_PER_PAGE = 8;
 
 function EnhancedTableHead(props: EnhancedTableProps) {
 	const {order, orderBy, rowCount, onRequestSort} = props;
@@ -63,40 +69,18 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 	);
 }
 
-function EnhancedTableToolbar() {
-	return (
-		<Toolbar
-			sx={{
-				pl: {sm: 2},
-				pr: {xs: 1, sm: 1},
-			}}
-		>
-			<Typography sx={{flex: '1 1 100%'}} variant="h6" id="tableTitle" component="div">
-				Too 50 Players
-			</Typography>
-
-			<Tooltip title="Filter list">
-				<IconButton>
-					<FilterListIcon />
-				</IconButton>
-			</Tooltip>
-		</Toolbar>
-	);
-}
-
 export default function EnhancedTable() {
-	const [order, setOrder] = React.useState<Order>(DEFAULT_ORDER);
-	const [orderBy, setOrderBy] = React.useState<keyof Player>(DEFAULT_ORDER_BY);
+	const [order, setOrder] = useState<Order>(DEFAULT_ORDER);
+	const [orderBy, setOrderBy] = useState<keyof Player>(DEFAULT_ORDER_BY);
 
-	const [page, setPage] = React.useState(0);
+	const [page, setPage] = useState(0);
 
-	const [rowsPerPage, setRowsPerPage] = React.useState(DEFAULT_ROWS_PER_PAGE);
-	const [paddingHeight, setPaddingHeight] = React.useState(0);
+	const [rowsPerPage, setRowsPerPage] = useState(DEFAULT_ROWS_PER_PAGE);
+	const [paddingHeight, setPaddingHeight] = useState(0);
 
-	const handleRequestSort = (
-		event: React.MouseEvent<unknown>,
-		property: keyof Player
-	) => {
+	const [activeChip, setActiveChip] = useState('all');
+
+	const handleRequestSort = (event: MouseEvent<unknown>, property: keyof Player) => {
 		const isAsc = orderBy === property && order === 'asc';
 		setOrder(isAsc ? 'desc' : 'asc');
 		setOrderBy(property);
@@ -111,16 +95,28 @@ export default function EnhancedTable() {
 		setPage(0);
 	};
 
+	const handleChipClick = (newChip: string) => {
+		setActiveChip(newChip);
+	};
+
+	const filteredRows =
+		activeChip === 'pitchers'
+			? rows.filter((row) => isPitcher(row.position))
+			: activeChip === 'hitters'
+			? rows.filter((row) => isHitter(row.position))
+			: rows;
+
 	const paginatedData =
-		(!!orderBy && !!rows
-			? stableSort(rows as any, getComparator(order, orderBy))
-			: rows || []
+		(!!orderBy && !!filteredRows
+			? stableSort(filteredRows as any, getComparator(order, orderBy))
+			: filteredRows || []
 		).slice(page * rowsPerPage, (page + 1) * rowsPerPage) || [];
 
 	return (
 		<Box sx={{width: '100%'}}>
+			<TogglePlayers activeChip={activeChip} handleClick={handleChipClick} />
+			<Padding size={16} div />
 			<Paper sx={{width: '100%', mb: 2}}>
-				{/* <EnhancedTableToolbar /> */}
 				<TableContainer>
 					<Table sx={{minWidth: 750}} aria-labelledby="tableTitle" size={'medium'}>
 						<EnhancedTableHead
@@ -143,7 +139,7 @@ export default function EnhancedTable() {
 										height: paddingHeight,
 									}}
 								>
-									<TableCell colSpan={6} />
+									<TableCell />
 								</TableRow>
 							)}
 						</TableBody>
@@ -152,7 +148,7 @@ export default function EnhancedTable() {
 				<TablePagination
 					rowsPerPageOptions={[5, 10, 25]}
 					component="div"
-					count={rows.length}
+					count={filteredRows.length}
 					rowsPerPage={rowsPerPage}
 					page={page}
 					onPageChange={handleChangePage}

@@ -48,7 +48,7 @@ export const headCells: readonly HeadCell[] = [
 	{
 		id: 'rank',
 		numeric: true,
-		disablePadding: true,
+		disablePadding: false,
 		label: 'Rank',
 	},
 	{
@@ -95,3 +95,28 @@ export interface EnhancedTableProps {
 	orderBy: string;
 	rowCount: number;
 }
+
+const pitchers = ['SP', 'RP', 'CL'];
+const hitters = [
+	'DH',
+	'C',
+	'1B',
+	'2B',
+	'SS',
+	'3B',
+	'LF',
+	'RF',
+	'CF',
+	'OF',
+	'INF',
+	'PH',
+	'PR',
+];
+
+export const isPitcher = (position: string) => {
+	return position.split(', ').filter((pos) => pitchers.includes(pos)).length > 0;
+};
+
+export const isHitter = (position: string) => {
+	return position.split(', ').filter((pos) => hitters.includes(pos)).length > 0;
+};

@@ -11,6 +11,13 @@ import {
 } from '@mui/material';
 import {Player} from '../helpers/types';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import {styled} from '@mui/system';
+
+const minTableWidth = 300;
+
+const WideTableCell = styled(TableCell)`
+	min-width: ${minTableWidth}px;
+`;
 
 interface Props {
 	row: Partial<Player>;
@@ -35,13 +42,13 @@ const PlayerRow: FC<Props> = (props) => {
 			<TableCell id={labelId} align="center" padding="checkbox">
 				{row.rank}
 			</TableCell>
-			<TableCell align="left">
+			<WideTableCell align="left">
 				<Grid container direction="row" alignItems="center">
 					<Avatar alt={row.name as string} src={row.img as string} />
 
 					<div style={{paddingLeft: 16}}>{row.name}</div>
 				</Grid>
-			</TableCell>
+			</WideTableCell>
 			<TableCell align="left">{row.team}</TableCell>
 			<TableCell align="left">{row.position}</TableCell>
 			<TableCell align="left">
