@@ -53,6 +53,8 @@ const Footer = () => {
 					index
 				</Link> */}
 
+				<Link onClick={() => router.push('/')}>home</Link>
+
 				<Link href="Resume2023.pdf" target="_blank">
 					resume
 				</Link>
@@ -60,7 +62,7 @@ const Footer = () => {
 				<Link href="" target="_blank">
 					design examples
 				</Link>
-				<Link onClick={() => router.push('/mlb')}>top 50 mlb players</Link>
+				<Link onClick={() => router.push('/mlb')}>top mlb players 2023</Link>
 			</Grid>
 			<Hidden mdUp>
 				<Padding size={16} />
