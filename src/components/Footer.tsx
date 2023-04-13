@@ -34,39 +34,20 @@ const Footer = () => {
 	const router = useRouter();
 	return (
 		<>
-			{/* {loadResults ? null : (
-				<Hidden mdDown>
-					<div
-						style={{
-							height: '100%',
-
-							color: colors.blueGrey,
-							textAlign: 'center',
-						}}
-					>
-						<Typography role={undefined}>{titles.description}</Typography>
-					</div>
-				</Hidden>
-			)} */}
 			<Grid container direction="row" justifyContent="center">
-				{/* <Link onClick={onSuggestClick} style={{ cursor: 'pointer' }}>
-					index
-				</Link> */}
-
 				<Link onClick={() => router.push('/')}>home</Link>
 
 				<Link href="Resume2023.pdf" target="_blank">
 					resume
 				</Link>
 
-				<Link href="" target="_blank">
-					design examples
-				</Link>
+				<Link onClick={() => router.push('/design')}>operator.io designs</Link>
 				<Link onClick={() => router.push('/mlb')}>top mlb players 2023</Link>
+				<Link href="https://github.com/ChrisCardoz/about" target="_blank">
+					source code
+				</Link>
 			</Grid>
-			<Hidden mdUp>
-				<Padding size={16} />
-			</Hidden>
+			<Padding size={32} div />
 		</>
 	);
 };
