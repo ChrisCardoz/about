@@ -1,10 +1,4 @@
-import {
-	Typography,
-	Hidden,
-	Grid,
-	Link as MuiLink,
-	Button as MuiButton,
-} from '@mui/material';
+import {Grid, Link as MuiLink} from '@mui/material';
 import {styled} from '@mui/system';
 import Padding from './Padding';
 import {useRouter} from 'next/router';
@@ -23,10 +17,6 @@ const linkCss = `
 `;
 
 const Link = styled(MuiLink)`
-	${linkCss}
-`;
-
-const Button = styled(MuiButton)`
 	${linkCss}
 `;
 
