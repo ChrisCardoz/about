@@ -31,8 +31,13 @@ const Footer = () => {
 					resume
 				</Link>
 
+				<Link href="https://www.linkedin.com/in/chriscardoz/" target="_blank">
+					linkedin
+				</Link>
+
 				<Link onClick={() => router.push('/design')}>operator.io designs</Link>
 				<Link onClick={() => router.push('/mlb')}>top mlb players 2023</Link>
+
 				<Link href="https://github.com/ChrisCardoz/about" target="_blank">
 					source code
 				</Link>

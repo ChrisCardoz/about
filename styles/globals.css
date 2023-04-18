@@ -98,7 +98,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
-	background: url('../public/background2.svg');
+	background: url('../public/background.jpeg') no-repeat center center fixed;
 }
 
 a {
