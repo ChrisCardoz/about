@@ -65,19 +65,19 @@ const Design = () => {
 							<>
 								{isMobile || !isEven ? (
 									<Grid container direction="row" alignItems="center" spacing={4}>
-										<Grid item xs={12} md={6}>
+										<Grid item xs={12} md={8}>
 											{item.caption}
 										</Grid>
-										<Grid item xs={12} md={6}>
+										<Grid item xs={12} md={4}>
 											<ResponsiveImage src={item.src} alt={item.alt} />
 										</Grid>
 									</Grid>
 								) : (
 									<Grid container direction="row" alignItems="center" spacing={4}>
-										<Grid item xs={12} md={6}>
+										<Grid item xs={12} md={4}>
 											<ResponsiveImage src={item.src} alt={item.alt} />
 										</Grid>
-										<Grid item xs={12} md={6}>
+										<Grid item xs={12} md={8}>
 											{item.caption}
 										</Grid>
 									</Grid>
@@ -86,6 +86,7 @@ const Design = () => {
 						</>
 					);
 				})}
+				<Padding size={32} div />
 			</Container>
 			<Footer />
 		</>
