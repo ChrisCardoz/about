@@ -1,10 +1,8 @@
 import {ButtonBase, Tooltip} from '@mui/material';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import {useTheme} from '@mui/material/styles';
+import useIsMobile from '../helpers/useIsMobile';
 
 const OperatorLogo = () => {
-	const theme = useTheme();
-	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+	const isMobile = useIsMobile();
 
 	return (
 		<ButtonBase style={{width: '100%'}} href="https://operator.io/" target="_blank">
