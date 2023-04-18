@@ -1,3 +1,4 @@
+import '../styles/Home.module.css';
 import Head from 'next/head';
 import Container from '@/src/components/Container';
 import Footer from '@/src/components/Footer';
@@ -37,6 +38,14 @@ const Design = () => {
 		<>
 			<Head>
 				<title>{`Chris's Designs for Operator`}</title>
+				<style>
+					{`
+						background: none; !important;
+						body {
+							background: none; !important;
+						}
+					`}
+				</style>
 			</Head>
 			<Container>
 				<OperatorLogo />
