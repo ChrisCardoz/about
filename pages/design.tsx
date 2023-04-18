@@ -5,6 +5,7 @@ import OperatorLogo from '@/src/components/OperatorLogo';
 import Image from 'next/image';
 import {Typography, Grid} from '@mui/material';
 import Padding from '@/src/components/Padding';
+import ResponsiveImage from '@/src/components/ResponsiveImage';
 
 const Design = () => {
 	return (
@@ -30,9 +31,9 @@ const Design = () => {
 				</Typography>
 				<Padding size={32} div />
 
-				<Grid container direction="row" alignItems="center">
+				<Grid container direction="row" alignItems="center" spacing={2}>
 					<Grid item xs={12} md={6}>
-						<Image src="/search-home.png" alt="Home page" width={720} height={450} />
+						<ResponsiveImage src="/search-home.png" alt="Home page" />
 					</Grid>
 
 					<Grid item xs={12} md={6}>
@@ -51,12 +52,7 @@ const Design = () => {
 						backend. You can tweet out the results as well.
 					</Grid>
 					<Grid item xs={12} md={6}>
-						<Image
-							src="/search-table-view.png"
-							alt="Search Results"
-							width={720}
-							height={450}
-						/>
+						<ResponsiveImage src="/search-table-view.png" alt="Search Results" />
 					</Grid>
 				</Grid>
 			</Container>
