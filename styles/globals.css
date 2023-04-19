@@ -5,7 +5,7 @@
 	font-style: normal; */
 }
 
-:root {
+/* :root {
 	--max-width: 1100px;
 	--border-radius: 12px;
 	--font-mono: 'MLB Tuscan', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -42,9 +42,9 @@
 	--callout-border-rgb: 172, 175, 176;
 	--card-rgb: 180, 185, 188;
 	--card-border-rgb: 131, 134, 135;
-}
+} */
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
 	:root {
 		--foreground-rgb: 255, 255, 255;
 		--background-start-rgb: 0, 0, 0;
@@ -75,7 +75,7 @@
 		--card-rgb: 100, 100, 100;
 		--card-border-rgb: 200, 200, 200;
 	}
-}
+} */
 
 * {
 	box-sizing: border-box;
@@ -87,18 +87,6 @@ html,
 body {
 	max-width: 100vw;
 	overflow-x: hidden;
-}
-
-body {
-	color: #fff;
-	/* color: rgb(var(--foreground-rgb)); */
-	/* background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
-	background: url('../public/background.jpeg') no-repeat center center fixed;
 }
 
 a {

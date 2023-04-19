@@ -1,3 +1,4 @@
+import styles from '../styles/home.module.css';
 import {Grid, Hidden} from '@mui/material';
 import CenterGrid from '@/src/components/CenterGrid';
 import Footer from '@/src/components/Footer';
@@ -9,7 +10,7 @@ import useIsMobile from '@/src/helpers/useIsMobile';
 export default function Index() {
 	const isMobile = useIsMobile();
 	return (
-		<>
+		<div className={styles.container} style={{height: '100vh', overflow: 'hidden'}}>
 			<Head>
 				<title>Chris Cardoz</title>
 			</Head>
@@ -27,6 +28,6 @@ export default function Index() {
 				</Grid>
 			</CenterGrid>
 			<Footer />
-		</>
+		</div>
 	);
 }
