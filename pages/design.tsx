@@ -6,6 +6,7 @@ import {Typography, Grid} from '@mui/material';
 import Padding from '@/src/components/Padding';
 import ResponsiveImage from '@/src/components/ResponsiveImage';
 import useIsMobile from '@/src/helpers/useIsMobile';
+import Swatch from '@/src/components/Swatch';
 
 interface Section {
 	src: string;
@@ -87,6 +88,10 @@ const Design = () => {
 					);
 				})}
 				<Padding size={32} div />
+
+				<Typography>Here is the color pallette I created for Operator</Typography>
+				<Padding size={16} div />
+				<Swatch />
 			</Container>
 			<Footer />
 		</>
