@@ -20,14 +20,17 @@ const sections: Section[] = [
 		alt: 'Home Page',
 		caption: `Here is the main page of Operator. The site uses OpenAI, OpenSearch and
 	additional database tools on the backend to translate text into sql queries of
-	our backend database of historical crypto data.`,
+	our backend database of historical crypto data. You can select a specific blockchains 
+	like Ethereum and Polygon to get more accurate results. There are also example queries 
+	for the user to get started.`,
 	},
 	{
 		src: '/search-table-view.png',
 		alt: 'Search Results',
 		caption: `Here is the results page of Operator. You can sort and filter the data, and
 		download it as a CSV. You can also view the SQL code used to query the
-		backend. You can tweet out the results as well.`,
+		backend. You can tweet out the results as well. Urls listed in the table link to 
+		external websites like OpenSea, Etherscan, and DexTools.`,
 	},
 ];
 
