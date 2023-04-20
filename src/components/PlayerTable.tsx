@@ -12,6 +12,7 @@ import {
 	Paper,
 	Chip,
 	Grid,
+	Tooltip,
 } from '@mui/material';
 import {visuallyHidden} from '@mui/utils';
 import {
@@ -28,6 +29,7 @@ import rows from '../helpers/topPlayers';
 import {headCells} from '../helpers/table';
 import TogglePlayers from './TogglePlayers';
 import Padding from './Padding';
+import InfoIcon from '@mui/icons-material/Info';
 
 const DEFAULT_ORDER = 'asc';
 const DEFAULT_ORDER_BY = 'rank';
@@ -56,6 +58,22 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 							onClick={createSortHandler(headCell.id)}
 						>
 							{headCell.label}
+							{headCell.id === 'rate' ? (
+								<Tooltip
+									title={
+										<div>
+											<span>OPS+ used for hitters</span>
+											<br />
+											<span>ERA+ used for pitchers</span>
+											<br />
+											<span>100 is league average</span>
+										</div>
+									}
+									placement="top"
+								>
+									<InfoIcon sx={{fontSize: 16, marginLeft: 1}} />
+								</Tooltip>
+							) : null}
 							{orderBy === headCell.id ? (
 								<Box component="span" sx={visuallyHidden}>
 									{order === 'desc' ? 'sorted descending' : 'sorted ascending'}
@@ -128,8 +146,6 @@ export default function EnhancedTable() {
 						<TableBody>
 							{paginatedData
 								? paginatedData.map((row, index) => {
-										const labelId = `enhanced-table-checkbox-${index}`;
-
 										return <PlayerRow key={row.rank} row={row as Player} />;
 								  })
 								: null}

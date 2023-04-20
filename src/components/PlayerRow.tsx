@@ -13,7 +13,7 @@ import {Player} from '../helpers/types';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {styled} from '@mui/system';
 
-const minTableWidth = 300;
+const minTableWidth = 220;
 
 const WideTableCell = styled(TableCell)`
 	min-width: ${minTableWidth}px;
