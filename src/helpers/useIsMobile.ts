@@ -8,4 +8,10 @@ const useIsMobile = () => {
 	return isMobile;
 };
 
+export const useIsMed = () => {
+	const theme = useTheme();
+	const isMed = useMediaQuery(theme.breakpoints.down('md'));
+	return isMed;
+};
+
 export default useIsMobile;

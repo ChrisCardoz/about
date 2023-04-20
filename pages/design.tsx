@@ -5,44 +5,56 @@ import OperatorLogo from '@/src/components/OperatorLogo';
 import {Typography, Grid} from '@mui/material';
 import Padding from '@/src/components/Padding';
 import ResponsiveImage from '@/src/components/ResponsiveImage';
-import useIsMobile from '@/src/helpers/useIsMobile';
+import {useIsMed} from '@/src/helpers/useIsMobile';
 import Swatch from '@/src/components/Swatch';
+import StyledLabel from '@/src/components/StyledLabel';
 
 interface Section {
 	src: string;
-	alt: string;
 	caption: string;
+	title: string;
 }
 
 const sections: Section[] = [
 	{
 		src: '/search-home.png',
-		alt: 'Home Page',
 		caption: `Here is the main page of Operator. The site uses OpenAI, OpenSearch and
 	additional database tools on the backend to translate text into sql queries of
 	our backend database of historical crypto data. You can select a specific blockchains 
 	like Ethereum and Polygon to get more accurate results. There are also example queries 
 	for the user to get started.`,
+		title: 'Home Page',
 	},
 	{
 		src: '/search-table-view.png',
-		alt: 'Search Results',
+
 		caption: `Here is the results page of Operator. You can sort and filter the data, and
 		download it as a CSV. You can also view the SQL code used to query the
 		backend. You can tweet out the results as well. Urls listed in the table link to 
 		external websites like OpenSea, Etherscan, and DexTools.`,
+		title: 'Search Results',
 	},
 ];
 
 const Design = () => {
-	const isMobile = useIsMobile();
+	const isMed = useIsMed();
+
+	const paddingSize = isMed ? 32 : 96;
 
 	return (
 		<>
 			<Head>
 				<title>{`Chris's Designs for Operator`}</title>
 			</Head>
-			<Container>
+			<div
+				style={{
+					padding: paddingSize,
+					paddingBottom: 4,
+					paddingTop: paddingSize,
+					alignContent: 'center',
+					textAlign: 'center',
+				}}
+			>
 				<OperatorLogo />
 				<Padding size={44} div />
 				<Typography>
@@ -58,7 +70,7 @@ const Design = () => {
 					the Next.js framework. The user interfaces were built primarily using the Google
 					Material UI library.
 				</Typography>
-				<Padding size={32} div />
+				<Padding size={paddingSize} div />
 
 				{sections.map((item, index) => {
 					const isEven = index % 2;
@@ -67,35 +79,52 @@ const Design = () => {
 						<>
 							{index === 0 ? null : <Padding size={32} div />}
 							<>
-								{isMobile || !isEven ? (
-									<Grid container direction="row" alignItems="center" spacing={4}>
-										<Grid item xs={12} md={8}>
+								{isMed || !isEven ? (
+									<Grid
+										container
+										direction="row"
+										alignItems="center"
+										justifyContent={'center'}
+										spacing={8}
+									>
+										<Grid item xs={12} md={6} style={{textAlign: 'start'}}>
+											<StyledLabel>{item.title}</StyledLabel>
+											<Padding size={4} div />
 											{item.caption}
 										</Grid>
-										<Grid item xs={12} md={4}>
-											<ResponsiveImage src={item.src} alt={item.alt} />
+										<Grid item xs={12} md={6}>
+											<ResponsiveImage src={item.src} alt={item.title} />
 										</Grid>
 									</Grid>
 								) : (
-									<Grid container direction="row" alignItems="center" spacing={4}>
-										<Grid item xs={12} md={4}>
-											<ResponsiveImage src={item.src} alt={item.alt} />
+									<Grid
+										container
+										direction="row"
+										alignItems="center"
+										justifyContent={'center'}
+										spacing={8}
+									>
+										<Grid item xs={12} md={6}>
+											<ResponsiveImage src={item.src} alt={item.title} />
 										</Grid>
-										<Grid item xs={12} md={8}>
+										<Grid item xs={12} md={6} style={{textAlign: 'end'}}>
+											<StyledLabel>{item.title}</StyledLabel>
+											<Padding size={4} div />
 											{item.caption}
 										</Grid>
 									</Grid>
 								)}
 							</>
+							<Padding size={paddingSize} div />
 						</>
 					);
 				})}
-				<Padding size={32} div />
 
-				<Typography>Here is the color pallette I created for Operator</Typography>
-				<Padding size={16} div />
+				<Padding size={isMed ? 16 : 0} div />
+				<StyledLabel>Color Pallette</StyledLabel>
+				<Padding size={isMed ? 16 : 32} div />
 				<Swatch />
-			</Container>
+			</div>
 			<Footer />
 		</>
 	);

@@ -5,6 +5,7 @@ const colors = {
 	accent: '#F3E8EE',
 	black: '#000',
 	white: '#fff',
+	blueGrey: '#9ea0a5',
 };
 
 export default colors;
