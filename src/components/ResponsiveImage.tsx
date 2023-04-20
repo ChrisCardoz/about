@@ -11,6 +11,10 @@ interface SimpleProps {
 const StyledImage = styled(Image)`
 	width: 100%;
 	height: auto;
+
+	-webkit-box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 1);
+	-moz-box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 1);
+	box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 1);
 `;
 
 const ResponsiveImage: FC<SimpleProps> = (props) => {
