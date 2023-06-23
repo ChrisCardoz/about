@@ -1,3 +1,4 @@
+import {memo} from 'react';
 import styles from '../styles/home.module.css';
 import {Grid, Hidden} from '@mui/material';
 import CenterGrid from '@/src/components/CenterGrid';
@@ -7,7 +8,7 @@ import Head from 'next/head';
 import MetsFont from '@/src/components/MetsFont';
 import useIsMobile from '@/src/helpers/useIsMobile';
 
-export default function Index() {
+const Index = memo(() => {
 	const isMobile = useIsMobile();
 	return (
 		<div className={styles.container} style={{height: '100vh', overflow: 'hidden'}}>
@@ -30,4 +31,8 @@ export default function Index() {
 			<Footer />
 		</div>
 	);
-}
+});
+
+Index.displayName = 'Index';
+
+export default Index;
