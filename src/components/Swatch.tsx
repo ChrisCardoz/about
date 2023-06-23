@@ -1,4 +1,6 @@
-const Swatch = () => {
+import {memo} from 'react';
+
+const Swatch = memo(() => {
 	return (
 		<svg
 			width="100%"
@@ -209,6 +211,8 @@ const Swatch = () => {
 			/>
 		</svg>
 	);
-};
+});
+
+Swatch.displayName = 'Swatch';
 
 export default Swatch;

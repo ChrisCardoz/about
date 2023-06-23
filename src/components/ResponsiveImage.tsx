@@ -1,4 +1,4 @@
-import {FC, useState} from 'react';
+import {memo, useState} from 'react';
 import Image from 'next/image';
 import {styled} from '@mui/system';
 import {ButtonBase, Dialog, Tooltip} from '@mui/material';
@@ -17,7 +17,7 @@ const StyledImage = styled(Image)`
 	box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 1);
 `;
 
-const ResponsiveImage: FC<SimpleProps> = (props) => {
+const ResponsiveImage = memo<SimpleProps>((props) => {
 	const [open, setOpen] = useState(false);
 
 	const handleClickOpen = () => {
@@ -43,6 +43,8 @@ const ResponsiveImage: FC<SimpleProps> = (props) => {
 			</Dialog>
 		</>
 	);
-};
+});
+
+ResponsiveImage.displayName = 'ResponsiveImage';
 
 export default ResponsiveImage;

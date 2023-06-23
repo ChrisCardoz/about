@@ -1,3 +1,4 @@
+import {memo} from 'react';
 import {Grid, Link as MuiLink} from '@mui/material';
 import {styled} from '@mui/system';
 import Padding from './Padding';
@@ -20,7 +21,7 @@ const Link = styled(MuiLink)`
 	${linkCss}
 `;
 
-const Footer = () => {
+const Footer = memo(() => {
 	const router = useRouter();
 	return (
 		<>
@@ -45,6 +46,8 @@ const Footer = () => {
 			<Padding size={32} div />
 		</>
 	);
-};
+});
+
+Footer.displayName = 'Footer';
 
 export default Footer;

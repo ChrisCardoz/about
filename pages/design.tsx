@@ -1,5 +1,5 @@
+import {memo} from 'react';
 import Head from 'next/head';
-import Container from '@/src/components/Container';
 import Footer from '@/src/components/Footer';
 import OperatorLogo from '@/src/components/OperatorLogo';
 import {Typography, Grid} from '@mui/material';
@@ -36,7 +36,7 @@ const sections: Section[] = [
 	},
 ];
 
-const Design = () => {
+const Design = memo(() => {
 	const isMed = useIsMed();
 
 	const paddingSize = isMed ? 32 : 96;
@@ -128,6 +128,8 @@ const Design = () => {
 			<Footer />
 		</>
 	);
-};
+});
+
+Design.displayName = 'Design';
 
 export default Design;

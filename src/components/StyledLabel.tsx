@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {Typography as MuiTypography} from '@mui/material';
 import {styled} from '@mui/system';
 import colors from '../theme/colors';
@@ -18,11 +18,13 @@ const LowerLabel = styled(MuiTypography)`
 	font-size: ${fontSize}px;
 `;
 
-const StyledLabel: React.FC<{
+interface Props {
 	lowerCase?: boolean;
 	style?: object;
 	children?: React.ReactNode;
-}> = (props) => {
+}
+
+const StyledLabel = memo<Props>((props) => {
 	let {lowerCase, style} = props;
 
 	return lowerCase ? (
@@ -30,6 +32,8 @@ const StyledLabel: React.FC<{
 	) : (
 		<Label style={{...style}}>{props.children}</Label>
 	);
-};
+});
+
+StyledLabel.displayName = 'StyledLabel';
 
 export default StyledLabel;

@@ -1,8 +1,17 @@
-import React, {FC} from 'react';
+import React, {memo} from 'react';
 
-const Padding: FC<{size: number; div?: boolean}> = (props) => {
-	if (!!props.div) return <div style={{paddingTop: props.size}} />;
-	return <span style={{paddingTop: props.size}} />;
-};
+interface Props {
+	size: number;
+	div?: boolean;
+}
+
+const Padding = memo<Props>((props) => {
+	const {div, size} = props;
+
+	if (!!div) return <div style={{paddingTop: size}} />;
+	return <span style={{paddingTop: size}} />;
+});
+
+Padding.displayName = 'Padding';
 
 export default Padding;

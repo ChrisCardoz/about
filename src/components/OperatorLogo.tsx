@@ -1,7 +1,8 @@
+import {memo} from 'react';
 import {ButtonBase, Tooltip} from '@mui/material';
 import useIsMobile from '../helpers/useIsMobile';
 
-const OperatorLogo = () => {
+const OperatorLogo = memo(() => {
 	const isMobile = useIsMobile();
 
 	return (
@@ -63,6 +64,8 @@ const OperatorLogo = () => {
 			</Tooltip>
 		</ButtonBase>
 	);
-};
+});
+
+OperatorLogo.displayName = 'OperatorLogo';
 
 export default OperatorLogo;
