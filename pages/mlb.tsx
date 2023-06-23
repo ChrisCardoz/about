@@ -1,3 +1,4 @@
+import {memo} from 'react';
 import {Typography, Grid} from '@mui/material';
 import PlayerTable from '../src/components/PlayerTable';
 import Padding from '@/src/components/Padding';
@@ -6,7 +7,7 @@ import MetsFont from '@/src/components/MetsFont';
 import Head from 'next/head';
 import Container from '@/src/components/Container';
 
-const Mlb = () => {
+const Mlb = memo(() => {
 	return (
 		<>
 			<Head>
@@ -22,6 +23,8 @@ const Mlb = () => {
 			<Footer />
 		</>
 	);
-};
+});
+
+Mlb.displayName = 'Mlb';
 
 export default Mlb;
