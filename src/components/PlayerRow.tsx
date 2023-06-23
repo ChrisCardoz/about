@@ -1,4 +1,4 @@
-import {FC, useState, memo} from 'react';
+import {useState, memo} from 'react';
 import {
 	TableCell,
 	TableRow,

@@ -1,4 +1,4 @@
-import {useState, MouseEvent} from 'react';
+import {useState, MouseEvent, memo} from 'react';
 import {
 	Box,
 	Table,
@@ -35,7 +35,7 @@ const DEFAULT_ORDER = 'asc';
 const DEFAULT_ORDER_BY = 'rank';
 const DEFAULT_ROWS_PER_PAGE = 8;
 
-function EnhancedTableHead(props: EnhancedTableProps) {
+const EnhancedTableHead = memo<EnhancedTableProps>((props) => {
 	const {order, orderBy, rowCount, onRequestSort} = props;
 	const createSortHandler =
 		(newOrderBy: keyof Player) => (event: React.MouseEvent<unknown>) => {
@@ -85,9 +85,11 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 			</TableRow>
 		</TableHead>
 	);
-}
+});
 
-export default function EnhancedTable() {
+EnhancedTableHead.displayName = 'EnhancedTableHead';
+
+const EnhancedTable = memo(() => {
 	const [order, setOrder] = useState<Order>(DEFAULT_ORDER);
 	const [orderBy, setOrderBy] = useState<keyof Player>(DEFAULT_ORDER_BY);
 
@@ -173,4 +175,8 @@ export default function EnhancedTable() {
 			</Paper>
 		</Box>
 	);
-}
+});
+
+EnhancedTable.displayName = 'EnhancedTable';
+
+export default EnhancedTable;
