@@ -1,4 +1,4 @@
-import {FC, useState} from 'react';
+import {FC, useState, memo} from 'react';
 import {
 	TableCell,
 	TableRow,
@@ -23,7 +23,7 @@ interface Props {
 	row: Partial<Player>;
 }
 
-const PlayerRow: FC<Props> = (props) => {
+const PlayerRow = memo<Props>((props) => {
 	const {row} = props;
 
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -89,6 +89,8 @@ const PlayerRow: FC<Props> = (props) => {
 			</TableCell>
 		</TableRow>
 	);
-};
+});
+
+PlayerRow.displayName = 'PlayerRow';
 
 export default PlayerRow;
