@@ -1,4 +1,4 @@
-import {FC, ReactNode} from 'react';
+import {memo, ReactNode} from 'react';
 import {Grid} from '@mui/material';
 import useIsMobile from '../helpers/useIsMobile';
 
@@ -6,7 +6,7 @@ interface Props {
 	children: ReactNode;
 }
 
-const CenterGrid: FC<Props> = (props) => {
+const CenterGrid = memo<Props>((props) => {
 	const isMobile = useIsMobile();
 	return (
 		<Grid
@@ -25,6 +25,8 @@ const CenterGrid: FC<Props> = (props) => {
 			</Grid>
 		</Grid>
 	);
-};
+});
+
+CenterGrid.displayName = 'CenterGrid';
 
 export default CenterGrid;
