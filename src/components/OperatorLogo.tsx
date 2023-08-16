@@ -7,7 +7,7 @@ const OperatorLogo = memo(() => {
 
 	return (
 		<ButtonBase style={{width: '100%'}} href="https://operator.io/" target="_blank">
-			<Tooltip title="Visit Operator.io" placement="top" arrow>
+			<Tooltip title="Visit Operator.io">
 				<svg
 					width={isMobile ? '80%' : '50%'}
 					viewBox="0 0 1746 362"

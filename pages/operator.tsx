@@ -2,12 +2,13 @@ import {memo} from 'react';
 import Head from 'next/head';
 import Footer from '@/src/components/Footer';
 import OperatorLogo from '@/src/components/OperatorLogo';
-import {Typography, Grid} from '@mui/material';
+import {Typography, Grid, ButtonBase, Tooltip} from '@mui/material';
 import Padding from '@/src/components/Padding';
 import ResponsiveImage from '@/src/components/ResponsiveImage';
 import {useIsMed} from '@/src/helpers/useIsMobile';
 import Swatch from '@/src/components/Swatch';
 import StyledLabel from '@/src/components/StyledLabel';
+import Image from 'next/image';
 
 interface Section {
 	src: string;
@@ -32,6 +33,8 @@ const sections: Section[] = [
 		title: 'Search Results',
 	},
 ];
+
+const npmTitle = 'View on Node Package Manager';
 
 const Design = memo(() => {
 	const isMed = useIsMed();
@@ -113,7 +116,19 @@ const Design = memo(() => {
 				})}
 
 				<Padding size={isMed ? 16 : 0} div />
-				<StyledLabel>Color Pallette</StyledLabel>
+				<StyledLabel>Operator Styles</StyledLabel>
+				<Typography>
+					I created an npm package to share styles and components across projects.
+				</Typography>
+				<Padding size={8} div />
+				<ButtonBase
+					href="https://www.npmjs.com/package/@atana/operator-styles"
+					target="_blank"
+				>
+					<Tooltip title={npmTitle}>
+						<Image width="120" height="47" src={'/npm-logo.png'} alt={npmTitle} />
+					</Tooltip>
+				</ButtonBase>
 				<Padding size={isMed ? 16 : 32} div />
 				<Swatch />
 			</div>
