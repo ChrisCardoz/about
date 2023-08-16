@@ -25,7 +25,7 @@ const Index = memo(() => {
 					<MetsFont variant={isMobile ? 'h3' : 'h1'}>Chris Cardoz</MetsFont>
 				</Grid>
 				<Grid container direction="row" justifyContent="center">
-					<MetsFont variant="h6">SOFTWARE ENGINEER | UI DESIGNER | NEW YORK, NY</MetsFont>
+					<MetsFont variant="h6">FULL STACK ENGINEER | NEW YORK, NY</MetsFont>
 				</Grid>
 			</CenterGrid>
 			<Footer />

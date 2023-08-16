@@ -36,7 +36,7 @@ const Footer = memo(() => {
 					linkedin
 				</Link>
 
-				<Link onClick={() => router.push('/design')}>operator.io designs</Link>
+				<Link onClick={() => router.push('/operator')}>operator.io</Link>
 				<Link onClick={() => router.push('/mlb')}>top mlb players 2023</Link>
 
 				<Link href="https://github.com/ChrisCardoz/about" target="_blank">

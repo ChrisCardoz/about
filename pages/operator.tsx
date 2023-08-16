@@ -18,20 +18,17 @@ interface Section {
 const sections: Section[] = [
 	{
 		src: '/search-home.png',
-		caption: `Here is the main page of Operator. The site uses OpenAI, OpenSearch and
-	additional database tools on the backend to translate text into sql queries of
-	our backend database of historical crypto data. You can select a specific blockchains 
-	like Ethereum and Polygon to get more accurate results. There are also example queries 
-	for the user to get started.`,
+		caption: `Users type questions into the search bar. Their raw text is processed using 
+		OpenSearch to generate a series of text prompts for OpenAI. Then OpenAI generates a 
+		SQL query that is sent to our backend. The user may select a blockchain to improve the
+		prompt generation.`,
 		title: 'Home Page',
 	},
 	{
 		src: '/search-table-view.png',
 
-		caption: `Here is the results page of Operator. You can sort and filter the data, and
-		download it as a CSV. You can also view the SQL code used to query the
-		backend. You can tweet out the results as well. Urls listed in the table link to 
-		external websites like OpenSea, Etherscan, and DexTools.`,
+		caption: `The user can sort, filter and download the raw data that's returned from the backend. You can also view the SQL code used to query the
+		backend. Urls listed in the table link to external websites like OpenSea, Etherscan, and DexTools.`,
 		title: 'Search Results',
 	},
 ];
@@ -44,7 +41,7 @@ const Design = memo(() => {
 	return (
 		<>
 			<Head>
-				<title>{`Chris's Designs for Operator`}</title>
+				<title>{`Chris's Work for Operator`}</title>
 			</Head>
 			<div
 				style={{
@@ -58,17 +55,12 @@ const Design = memo(() => {
 				<OperatorLogo />
 				<Padding size={44} div />
 				<Typography>
-					Operator is a software company formed in Late 2019 and was backed by
-					Y-Combinator in Spring 2020. While working full-time for Operator, I worked
-					primary as a Product Designer and Front-End Engineer. My job entailed
-					researching software product-spaces, creating product design spec-sheets,
-					mocking up designs based on spec-sheets, and implementing the designs. I worked
-					primarily in Google Docs to create spec sheets, often using images and urls to
-					reference existing competitive apps, and in Figma to create mock-ups. If
-					additional graphic design or re-coloring of logos was needed, I would use Sketch
-					for image editing and vector drawing. The frontend is written in React.ts using
-					the Next.js framework. The user interfaces were built primarily using the Google
-					Material UI library.
+					Operator is a startup formed in Late 2019 and was backed by Y-Combinator in
+					Spring 2020. While working full-time for Operator, I worked as a Full Stack
+					Engineer and Product Developer. I constructed the frontend codebase using
+					Next.js with Typescript, Redux, and Material-UI. I contributed to the the API
+					layer of backend codebase, written in Express.js. I was also responsible for
+					designing the user interfaces and mockups, working mostly in Figma.
 				</Typography>
 				<Padding size={paddingSize} div />
 
