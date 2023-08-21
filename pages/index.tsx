@@ -6,12 +6,15 @@ import Footer from '@/src/components/Footer';
 import Padding from '@/src/components/Padding';
 import Head from 'next/head';
 import MetsFont from '@/src/components/MetsFont';
-import useIsMobile from '@/src/helpers/useIsMobile';
+import useIsMobile, {backgroundHeight} from '@/src/helpers/useIsMobile';
 
 const Index = memo(() => {
 	const isMobile = useIsMobile();
 	return (
-		<div className={styles.container} style={{height: '100vh', overflow: 'hidden'}}>
+		<div
+			className={styles.container}
+			style={{height: '100vh', maxHeight: backgroundHeight, overflow: 'hidden'}}
+		>
 			<Head>
 				<title>Chris Cardoz</title>
 			</Head>

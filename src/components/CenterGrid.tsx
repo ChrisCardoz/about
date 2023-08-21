@@ -1,6 +1,6 @@
 import {memo, ReactNode} from 'react';
 import {Grid} from '@mui/material';
-import useIsMobile from '../helpers/useIsMobile';
+import useIsMobile, {useIsBigScreen, backgroundHeight} from '../helpers/useIsMobile';
 
 interface Props {
 	children: ReactNode;
@@ -8,6 +8,8 @@ interface Props {
 
 const CenterGrid = memo<Props>((props) => {
 	const isMobile = useIsMobile();
+	const isBigScreen = useIsBigScreen();
+
 	return (
 		<Grid
 			container
@@ -15,7 +17,9 @@ const CenterGrid = memo<Props>((props) => {
 			justifyContent="center"
 			alignItems="flex-start"
 			style={{
-				height: `calc(100vh - ${isMobile ? 140 : 80}px)`,
+				height: isBigScreen
+					? `calc(${backgroundHeight}px - ${isMobile ? 140 : 80}px)`
+					: `calc(100vh - ${isMobile ? 140 : 80}px)`,
 				padding: isMobile ? 24 : 64,
 				paddingBottom: 0,
 			}}
