@@ -4,8 +4,7 @@ import AceEditor, {IAceEditorProps} from 'react-ace';
 import Box from '@mui/material/Box';
 import {styled} from '@mui/system';
 import Head from 'next/head';
-import 'ace-builds/src-noconflict/mode-python';
-import 'ace-builds/src-noconflict/theme-dracula';
+import 'ace-builds/src-noconflict/mode-pgsql';
 import 'ace-builds/src-noconflict/ext-language_tools';
 import {theme} from './theme';
 
@@ -53,16 +52,34 @@ const editorStyles = `
 }
 `;
 
+const defaultText = `-- find total spent on sales or marketing expenses
+SELECT
+	ROUND(SUM(e.amount) / 100, 2)\t\t"Total",
+	e.category\t\t\t\t\t\t\t"GL Account"
+FROM expensify.expense e
+	
+-- restrict categories
+WHERE e.category LIKE '%Sales%' OR e.category LIKE '%Marketing%'
+GROUP BY e.category`;
+
+const amtLines = 14;
 const Editor = (props: any) => {
 	const aceProps: IAceEditorProps = {
-		mode: 'SQL',
-		theme: 'dracula',
 		onChange: onChange,
-		name: 'example',
 		editorProps: {$blockScrolling: true},
 		style: {
 			width: '100%',
 		},
+		fontSize: 11,
+		maxLines: amtLines,
+		minLines: amtLines,
+		value: defaultText,
+		mode: 'pgsql',
+		showGutter: true,
+		enableSnippets: true,
+		enableBasicAutocompletion: true,
+		enableLiveAutocompletion: true,
+		showPrintMargin: false,
 	};
 	return (
 		<Container>

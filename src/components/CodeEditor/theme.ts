@@ -1,23 +1,35 @@
 import {colors} from '@atana/operator-styles';
 
+const contentPadding = 4;
+const contentPaddingTop = 8;
 export const theme = `
 
+    .ace_editor * {
+      line-height: 1.25rem !important;
+    }
+
     .ace_content {
-      background: ${colors.sqlGrey}
+      background: ${colors.sqlGrey};
+      padding: ${contentPadding}px;
+      padding-top: ${contentPaddingTop}px;
     }
 
     .ace-tm .ace_gutter {
       background: ${colors.black};
       color: ${colors.white};
+      padding: ${contentPadding}px;
+      padding-top: ${contentPaddingTop}px;
     }
 
     .ace-tm .ace_marker-layer .ace_active-line {
       background: ${colors.primary};
       opacity: .07;
+
     }
 
     .ace-tm .ace_gutter-active-line {
-      background: ${colors.sqlGrey}
+      background: ${colors.sqlGrey};
+      // padding-left: ${contentPadding}px;
     }
 
     .ace-tm {
@@ -73,5 +85,7 @@ export const theme = `
     .ace_autocomplete-tip {
       color: ${colors.primary}
     }
+
+    
 
 `;
