@@ -18,6 +18,9 @@ const Editor = (props: any) => {
 		onChange: onChange,
 		name: 'example',
 		editorProps: {$blockScrolling: true},
+		style: {
+			width: '100%',
+		},
 	};
 	return (
 		<Box>

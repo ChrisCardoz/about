@@ -9,7 +9,7 @@ import {useIsMed} from '@/src/helpers/useIsMobile';
 import Swatch from '@/src/components/Swatch';
 import StyledLabel from '@/src/components/StyledLabel';
 import Image from 'next/image';
-
+import Mockup from '../src/components/CodeEditor/Mockup';
 import dynamic from 'next/dynamic';
 import React from 'react';
 import Box from '@mui/material/Box';
@@ -72,7 +72,20 @@ const Design = memo(() => {
 				</Typography>
 				<Padding size={paddingSize} div />
 
-				<CodeEditor />
+				<Grid
+					container
+					direction="row"
+					alignItems="center"
+					justifyContent={'center'}
+					spacing={8}
+				>
+					<Grid item xs={6}>
+						<Mockup />
+					</Grid>
+					<Grid item xs={6}>
+						<CodeEditor />
+					</Grid>
+				</Grid>
 
 				<Padding size={paddingSize} div />
 
