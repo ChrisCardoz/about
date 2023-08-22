@@ -7,6 +7,7 @@ import Head from 'next/head';
 import 'ace-builds/src-noconflict/mode-python';
 import 'ace-builds/src-noconflict/theme-dracula';
 import 'ace-builds/src-noconflict/ext-language_tools';
+import {theme} from './theme';
 
 const ScrollBox = styled('div')`
 	height: 100%;
@@ -67,7 +68,7 @@ const Editor = (props: any) => {
 		<Container>
 			<Head>
 				<style>{editorStyles}</style>
-				{/* <style>{!darkMode ? light_style : dark_style}</style> */}
+				<style>{theme}</style>
 			</Head>
 
 			<Box>
