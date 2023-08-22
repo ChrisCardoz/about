@@ -10,6 +10,11 @@ import Swatch from '@/src/components/Swatch';
 import StyledLabel from '@/src/components/StyledLabel';
 import Image from 'next/image';
 
+import dynamic from 'next/dynamic';
+import React from 'react';
+import Box from '@mui/material/Box';
+
+const CodeEditor = dynamic(() => import('../src/components/CodeEditor'), {ssr: false});
 interface Section {
 	src: string;
 	caption: string;
@@ -65,6 +70,10 @@ const Design = memo(() => {
 					layer of backend codebase, written in Express.js. I was also responsible for
 					designing the user interfaces and mockups, working mostly in Figma.
 				</Typography>
+				<Padding size={paddingSize} div />
+
+				<CodeEditor />
+
 				<Padding size={paddingSize} div />
 
 				{sections.map((item, index) => {
