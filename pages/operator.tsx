@@ -79,10 +79,14 @@ const Design = memo(() => {
 					justifyContent={'center'}
 					spacing={8}
 				>
-					<Grid item xs={6}>
+					<Grid item xs={12} md={6}>
+						<StyledLabel>Figma Mockup</StyledLabel>
+						<Padding size={16} div />
 						<Mockup />
 					</Grid>
-					<Grid item xs={6}>
+					<Grid item xs={12} md={6}>
+						<StyledLabel>Ace Editor (TRY ME)</StyledLabel>
+						<Padding size={16} div />
 						<CodeEditor />
 					</Grid>
 				</Grid>

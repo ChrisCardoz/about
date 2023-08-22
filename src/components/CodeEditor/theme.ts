@@ -14,6 +14,10 @@ export const theme = `
       padding-top: ${contentPaddingTop}px;
     }
 
+    .ace_gutter {
+      min-width: 58px;
+    }
+
     .ace-tm .ace_gutter {
       background: ${colors.black};
       color: ${colors.white};

@@ -68,7 +68,7 @@ const Editor = (props: any) => {
 		onChange: onChange,
 		editorProps: {$blockScrolling: true},
 		style: {
-			width: '100%',
+			width: 665,
 		},
 		fontSize: 11,
 		maxLines: amtLines,
