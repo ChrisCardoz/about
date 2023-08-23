@@ -88,9 +88,7 @@ const Editor = (props: any) => {
 				<style>{theme}</style>
 			</Head>
 
-			<Box>
-				<Box id="example"></Box>
-
+			<Box style={{marginTop: -4}}>
 				{/* @ts-ignore */}
 				<AceEditor {...aceProps} />
 			</Box>
