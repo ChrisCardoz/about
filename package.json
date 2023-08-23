@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@atana/operator-styles": "^1.2.0",
     "@emotion/css": "^11.10.6",
     "@emotion/react": "^11.10.6",
     "@emotion/server": "^11.10.0",

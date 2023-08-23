@@ -9,7 +9,12 @@ import {useIsMed} from '@/src/helpers/useIsMobile';
 import Swatch from '@/src/components/Swatch';
 import StyledLabel from '@/src/components/StyledLabel';
 import Image from 'next/image';
+import Mockup from '../src/components/CodeEditor/Mockup';
+import dynamic from 'next/dynamic';
+import React from 'react';
+import Box from '@mui/material/Box';
 
+const CodeEditor = dynamic(() => import('../src/components/CodeEditor'), {ssr: false});
 interface Section {
 	src: string;
 	caption: string;
@@ -65,6 +70,27 @@ const Design = memo(() => {
 					layer of backend codebase, written in Express.js. I was also responsible for
 					designing the user interfaces and mockups, working mostly in Figma.
 				</Typography>
+				<Padding size={paddingSize} div />
+
+				<Grid
+					container
+					direction="row"
+					alignItems="center"
+					justifyContent={'center'}
+					spacing={8}
+				>
+					<Grid item xs={12} md={6}>
+						<StyledLabel>Figma Mockup</StyledLabel>
+						<Padding size={24} div />
+						<Mockup />
+					</Grid>
+					<Grid item xs={12} md={6}>
+						<StyledLabel>Ace Editor (TRY ME)</StyledLabel>
+						<Padding size={16} div />
+						<CodeEditor />
+					</Grid>
+				</Grid>
+
 				<Padding size={paddingSize} div />
 
 				{sections.map((item, index) => {
