@@ -12,10 +12,11 @@ export const theme = `
       background: ${colors.sqlGrey};
       padding: ${contentPadding}px;
       padding-top: ${contentPaddingTop}px;
+      margin-left: 0px;
     }
 
     .ace_gutter {
-      min-width: 57px;
+      width: 8px;
     }
 
     .ace-tm .ace_gutter {
