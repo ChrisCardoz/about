@@ -80,6 +80,7 @@ const Editor = (props: any) => {
 		enableBasicAutocompletion: true,
 		enableLiveAutocompletion: true,
 		showPrintMargin: false,
+		highlightActiveLine: false,
 	};
 	return (
 		<Container>

@@ -81,7 +81,7 @@ const Design = memo(() => {
 				>
 					<Grid item xs={12} md={6}>
 						<StyledLabel>Figma Mockup</StyledLabel>
-						<Padding size={16} div />
+						<Padding size={24} div />
 						<Mockup />
 					</Grid>
 					<Grid item xs={12} md={6}>

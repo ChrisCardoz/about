@@ -15,7 +15,7 @@ export const theme = `
     }
 
     .ace_gutter {
-      min-width: 58px;
+      min-width: 57px;
     }
 
     .ace-tm .ace_gutter {
@@ -32,8 +32,8 @@ export const theme = `
     }
 
     .ace-tm .ace_gutter-active-line {
-      background: ${colors.sqlGrey};
-      // padding-left: ${contentPadding}px;
+      background: ${colors.black};
+       padding-left: ${contentPadding}px;
     }
 
     .ace-tm {
