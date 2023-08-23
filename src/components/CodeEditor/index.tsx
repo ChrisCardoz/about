@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import AceEditor, {IAceEditorProps} from 'react-ace';
+import AceEditor from 'react-ace';
 import Box from '@mui/material/Box';
 import {styled} from '@mui/system';
 import Head from 'next/head';
@@ -64,7 +64,7 @@ GROUP BY e.category`;
 
 const amtLines = 14;
 const Editor = (props: any) => {
-	const aceProps: IAceEditorProps = {
+	const aceProps: any = {
 		onChange: onChange,
 		editorProps: {$blockScrolling: true},
 		style: {

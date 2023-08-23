@@ -15,9 +15,9 @@ export const theme = `
       margin-left: 0px;
     }
 
-    .ace_gutter {
-      width: 8px;
-    }
+    // .ace_gutter {
+    //   width: 8px;
+    // }
 
     .ace-tm .ace_gutter {
       background: ${colors.black};
