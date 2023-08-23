@@ -2,7 +2,7 @@ import {memo} from 'react';
 import Head from 'next/head';
 import Footer from '@/src/components/Footer';
 import OperatorLogo from '@/src/components/OperatorLogo';
-import {Typography, Grid, ButtonBase, Tooltip} from '@mui/material';
+import {Typography, Grid, ButtonBase, Tooltip, Link} from '@mui/material';
 import Padding from '@/src/components/Padding';
 import ResponsiveImage from '@/src/components/ResponsiveImage';
 import {useIsMed} from '@/src/helpers/useIsMobile';
@@ -90,6 +90,16 @@ const Design = memo(() => {
 						<CodeEditor />
 					</Grid>
 				</Grid>
+
+				<Padding size={16} div />
+
+				<Typography>
+					For making SQL queries, I created a Figma Mockup using our company colors then
+					implemented it using{' '}
+					<Link href="https://ace.c9.io/" target="_blank">
+						Ace Editor.
+					</Link>
+				</Typography>
 
 				<Padding size={paddingSize} div />
 
