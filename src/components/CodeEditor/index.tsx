@@ -1,5 +1,4 @@
 import React from 'react';
-import {render} from 'react-dom';
 import AceEditor from 'react-ace';
 import Box from '@mui/material/Box';
 import {styled} from '@mui/system';
