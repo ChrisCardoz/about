@@ -1,18 +1,18 @@
 import React, {memo} from 'react';
-import {Typography as MuiTypography} from '@mui/material';
-import {styled} from '@mui/system';
+import Typography from '@mui/material/Typography';
+import styled from '@mui/system/styled';
 import colors from '../theme/colors';
 
 const fontSize = 16;
 
-const Label = styled(MuiTypography)`
+const Label = styled(Typography)`
 	text-transform: uppercase;
 	color: ${colors.blueGrey};
 	font-weight: 500;
 	font-size: ${fontSize}px;
 `;
 
-const LowerLabel = styled(MuiTypography)`
+const LowerLabel = styled(Typography)`
 	color: ${colors.blueGrey};
 	font-weight: 500;
 	font-size: ${fontSize}px;

@@ -1,7 +1,7 @@
 import React from 'react';
 import AceEditor from 'react-ace';
 import Box from '@mui/material/Box';
-import {styled} from '@mui/system';
+import styled from '@mui/system/styled';
 import Head from 'next/head';
 import 'ace-builds/src-noconflict/mode-pgsql';
 import 'ace-builds/src-noconflict/ext-language_tools';

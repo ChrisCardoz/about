@@ -1,5 +1,5 @@
 import {memo} from 'react';
-import {Typography, Grid} from '@mui/material';
+import Grid from '@mui/material/Grid';
 import PlayerTable from '../src/components/PlayerTable';
 import Padding from '@/src/components/Padding';
 import Footer from '@/src/components/Footer';

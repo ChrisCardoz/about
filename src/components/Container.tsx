@@ -1,4 +1,4 @@
-import {styled} from '@mui/system';
+import styled from '@mui/system/styled';
 
 const Container = styled('div')`
 	padding: 32px;

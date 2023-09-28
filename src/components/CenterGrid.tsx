@@ -1,5 +1,5 @@
 import {memo, ReactNode} from 'react';
-import {Grid} from '@mui/material';
+import Grid from '@mui/material/Grid';
 import useIsMobile, {useIsBigScreen, backgroundHeight} from '../helpers/useIsMobile';
 
 interface Props {

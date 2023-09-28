@@ -1,7 +1,9 @@
 import {memo, useState} from 'react';
 import Image from 'next/image';
-import {styled} from '@mui/system';
-import {ButtonBase, Dialog, Tooltip} from '@mui/material';
+import styled from '@mui/system/styled';
+import ButtonBase from '@mui/material/ButtonBase';
+import Dialog from '@mui/material/Dialog';
+import Tooltip from '@mui/material/Tooltip';
 
 interface SimpleProps {
 	src: string;

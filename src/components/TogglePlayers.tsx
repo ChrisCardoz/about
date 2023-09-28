@@ -1,5 +1,6 @@
 import {FC} from 'react';
-import {Grid, Chip} from '@mui/material';
+import Grid from '@mui/material/Grid';
+import Chip from '@mui/material/Chip';
 
 interface Props {
 	activeChip: string;

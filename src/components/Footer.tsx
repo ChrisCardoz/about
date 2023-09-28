@@ -1,6 +1,7 @@
 import {memo} from 'react';
-import {Grid, Link as MuiLink} from '@mui/material';
-import {styled} from '@mui/system';
+import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
+import styled from '@mui/system/styled';
 import Padding from './Padding';
 import {useRouter} from 'next/router';
 
@@ -17,7 +18,7 @@ const linkCss = `
 	}
 `;
 
-const Link = styled(MuiLink)`
+const StyledLink = styled(Link)`
 	${linkCss}
 `;
 
@@ -26,22 +27,22 @@ const Footer = memo(() => {
 	return (
 		<>
 			<Grid container direction="row" justifyContent="center">
-				<Link onClick={() => router.push('/')}>home</Link>
+				<StyledLink onClick={() => router.push('/')}>home</StyledLink>
 
-				<Link href="Resume2023.pdf" target="_blank">
+				<StyledLink href="Resume2023.pdf" target="_blank">
 					resume
-				</Link>
+				</StyledLink>
 
-				<Link href="https://www.linkedin.com/in/chriscardoz/" target="_blank">
+				<StyledLink href="https://www.linkedin.com/in/chriscardoz/" target="_blank">
 					linkedin
-				</Link>
+				</StyledLink>
 
-				<Link onClick={() => router.push('/operator')}>operator.io</Link>
-				<Link onClick={() => router.push('/mlb')}>top mlb players 2023</Link>
+				<StyledLink onClick={() => router.push('/operator')}>operator.io</StyledLink>
+				<StyledLink onClick={() => router.push('/mlb')}>top mlb players 2023</StyledLink>
 
-				<Link href="https://github.com/ChrisCardoz/about" target="_blank">
+				<StyledLink href="https://github.com/ChrisCardoz/about" target="_blank">
 					source code
-				</Link>
+				</StyledLink>
 			</Grid>
 			<Padding size={32} div />
 		</>

@@ -1,6 +1,7 @@
 import {memo} from 'react';
 import styles from '../styles/home.module.css';
-import {Grid, Hidden} from '@mui/material';
+import Grid from '@mui/material/Grid';
+import Hidden from '@mui/material/Hidden';
 import CenterGrid from '@/src/components/CenterGrid';
 import Footer from '@/src/components/Footer';
 import Padding from '@/src/components/Padding';

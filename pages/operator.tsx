@@ -2,7 +2,11 @@ import {memo} from 'react';
 import Head from 'next/head';
 import Footer from '@/src/components/Footer';
 import OperatorLogo from '@/src/components/OperatorLogo';
-import {Typography, Grid, ButtonBase, Tooltip, Link} from '@mui/material';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import ButtonBase from '@mui/material/ButtonBase';
+import Tooltip from '@mui/material/Tooltip';
+import Link from '@mui/material/Link';
 import Padding from '@/src/components/Padding';
 import ResponsiveImage from '@/src/components/ResponsiveImage';
 import {useIsMed} from '@/src/helpers/useIsMobile';
@@ -12,7 +16,6 @@ import Image from 'next/image';
 import Mockup from '../src/components/CodeEditor/Mockup';
 import dynamic from 'next/dynamic';
 import React from 'react';
-import Box from '@mui/material/Box';
 
 const CodeEditor = dynamic(() => import('../src/components/CodeEditor'), {ssr: false});
 interface Section {

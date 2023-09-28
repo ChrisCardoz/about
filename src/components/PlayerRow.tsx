@@ -1,14 +1,12 @@
 import {useState, memo} from 'react';
-import {
-	TableCell,
-	TableRow,
-	Avatar,
-	Grid,
-	IconButton,
-	Menu,
-	MenuItem,
-	Link,
-} from '@mui/material';
+import TableCell from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
+import Avatar from '@mui/material/Avatar';
+import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Link from '@mui/material/Link';
 import {Player} from '../helpers/types';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {styled} from '@mui/system';

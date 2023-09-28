@@ -1,5 +1,6 @@
 import {memo} from 'react';
-import {ButtonBase, Tooltip} from '@mui/material';
+import Tooltip from '@mui/material/Tooltip';
+import ButtonBase from '@mui/material/ButtonBase';
 import useIsMobile from '../helpers/useIsMobile';
 
 const OperatorLogo = memo(() => {
